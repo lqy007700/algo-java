@@ -1,13 +1,17 @@
 package array;
 
-import java.util.Arrays;
-
 public class 下一个排列 {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 6, 5};
-        下一个排列 a = new 下一个排列();
-        a.nextPermutation(nums);
-        System.out.println(Arrays.toString(nums));
+//        int[] nums = {1, 2, 3, 4, 6, 5};
+//        下一个排列 a = new 下一个排列();
+//        a.nextPermutation(nums);
+//        System.out.println(Arrays.toString(nums));
+        try {
+            Class.forName("com.exec.MyClass");
+
+        } catch (NoClassDefFoundError | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void nextPermutation(int[] nums) {
