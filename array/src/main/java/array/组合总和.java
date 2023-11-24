@@ -12,18 +12,19 @@ public class 组合总和 {
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        int n = candidates.length;
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
 
-        dfs(candidates, 0, candidates.length, target, path, res);
-
+        dfs(candidates, target, 0, n, res, path);
         return res;
     }
 
-    private void dfs(int[] candidates, int begin, int len, int target, List<Integer> path, List<List<Integer>> res) {
+    private void dfs(int[] candidates, int target, int begin, int len, List<List<Integer>> res, List<Integer> path) {
         if (target < 0) {
             return;
         }
+
         if (target == 0) {
             res.add(new ArrayList<>(path));
             return;
@@ -31,7 +32,7 @@ public class 组合总和 {
 
         for (int i = begin; i < len; i++) {
             path.add(candidates[i]);
-            dfs(candidates, i, len, target - candidates[i], path, res);
+            dfs(candidates, target - candidates[i], i, len, res, path);
             path.remove(path.size() - 1);
         }
     }
